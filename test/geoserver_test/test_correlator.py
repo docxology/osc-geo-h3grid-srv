@@ -10,6 +10,8 @@ from geoserver.correlator import Correlator
 from geoserver.geomesh_router_arguments import LocatedAsset, DatasetArg, \
     AssetFilter
 
+import pandas as pd
+
 test_dir = "./test/test_data/correlator"
 
 
@@ -25,6 +27,8 @@ class TestCorrelator:
                 long=13.40
             ),
         ]
+
+        assets = pd.DataFrame([a.dict() for a in assets])
 
         datasets = [
             DatasetArg(
@@ -56,6 +60,8 @@ class TestCorrelator:
                 long=0
             )
         ]
+
+        assets = pd.DataFrame([a.dict() for a in assets])
 
         datasets = [
             DatasetArg(
@@ -105,6 +111,8 @@ class TestCorrelator:
                 # flood_risk_mean   = 1.471
             )
         ]
+
+        assets = pd.DataFrame([a.dict() for a in assets])
 
         datasets = [
             DatasetArg(
@@ -157,6 +165,8 @@ class TestCorrelator:
                 # flood_risk_mean   = 1.471
             )
         ]
+
+        assets = pd.DataFrame([a.dict() for a in assets])
 
         datasets = [
             DatasetArg(
@@ -214,6 +224,8 @@ class TestCorrelator:
                 # flood_risk_mean   = 1.471
             )
         ]
+
+        assets = pd.DataFrame([a.dict() for a in assets])
 
         datasets = [
             DatasetArg(
@@ -288,6 +300,8 @@ class TestCorrelator:
                 # flood_risk_max 1000y  = 5.806
             )
         ]
+
+        assets = pd.DataFrame([a.dict() for a in assets])
 
         datasets = [
             DatasetArg(
