@@ -4,7 +4,7 @@ from geoserver.geomesh import Geomesh
 
 class TestGeomesh(unittest.TestCase):
     def setUp(self):
-        self.geomesh = Geomesh(database_dir='test_db')
+        self.geomesh = Geomesh(geo_out_db_dir='test_db')
 
     def test_get_data(self):
         result = self.geomesh.get_data('test_dataset', year=2023)
