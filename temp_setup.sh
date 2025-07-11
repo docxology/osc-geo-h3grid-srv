@@ -5,7 +5,7 @@ set -ex # Add -x for debugging
 source /home/trim/Documents/GitHub/GEO-INFER/GEO-INFER-SPACE/repo/osc-geo-h3grid-srv/venv/bin/activate
 
 # Add GEO-INFER-SPACE/src to PYTHONPATH for tests to find shared modules
-export PYTHONPATH="/home/trim/Documents/GitHub/GEO-INFER/GEO-INFER-SPACE/src/src:$PYTHONPATH"
+export PYTHONPATH="/home/trim/Documents/GitHub/GEO-INFER/GEO-INFER-SPACE/src:$PYTHONPATH"
 
 # Check for setup.py or pyproject.toml and create setup.py if missing
 if [ ! -f "setup.py" ] && [ ! -f "pyproject.toml" ]; then
