@@ -1,6 +1,6 @@
 import unittest
 from unittest.mock import MagicMock, patch
-from geo_infer_space.repo.osc_geo_h3grid_srv.geoserver.geomesh import Geomesh
+from geoserver.geomesh import Geomesh
 
 class TestGeomesh(unittest.TestCase):
     def setUp(self):
