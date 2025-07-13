@@ -90,7 +90,7 @@ class Correlator:
         # Ensure all H3 resolutions from 0 to 15 are added
         for res in range(16):
             df[f"{CELL_COL_PREFIX}{res}"] = [
-                h3.geo_to_h3(lat, lon, res) for lat, lon in
+                h3.latlng_to_cell(lat, lon, res) for lat, lon in
                 zip(latitudes, longitudes)
             ]
         logger.info("done attaching cells to data")
