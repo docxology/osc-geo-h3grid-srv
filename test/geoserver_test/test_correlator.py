@@ -28,7 +28,7 @@ class TestCorrelator:
             ),
         ]
 
-        assets = pd.DataFrame([a.dict() for a in assets])
+        assets = pd.DataFrame([a.model_dump() for a in assets])
 
         datasets = [
             DatasetArg(
@@ -61,7 +61,7 @@ class TestCorrelator:
             )
         ]
 
-        assets = pd.DataFrame([a.dict() for a in assets])
+        assets = pd.DataFrame([a.model_dump() for a in assets])
 
         datasets = [
             DatasetArg(
@@ -112,7 +112,7 @@ class TestCorrelator:
             )
         ]
 
-        assets = pd.DataFrame([a.dict() for a in assets])
+        assets = pd.DataFrame([a.model_dump() for a in assets])
 
         datasets = [
             DatasetArg(
@@ -166,7 +166,7 @@ class TestCorrelator:
             )
         ]
 
-        assets = pd.DataFrame([a.dict() for a in assets])
+        assets = pd.DataFrame([a.model_dump() for a in assets])
 
         datasets = [
             DatasetArg(
@@ -225,7 +225,7 @@ class TestCorrelator:
             )
         ]
 
-        assets = pd.DataFrame([a.dict() for a in assets])
+        assets = pd.DataFrame([a.model_dump() for a in assets])
 
         datasets = [
             DatasetArg(
@@ -301,7 +301,7 @@ class TestCorrelator:
             )
         ]
 
-        assets = pd.DataFrame([a.dict() for a in assets])
+        assets = pd.DataFrame([a.model_dump() for a in assets])
 
         datasets = [
             DatasetArg(
