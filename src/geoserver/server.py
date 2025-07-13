@@ -13,7 +13,7 @@ import uvicorn as uvicorn
 import yaml
 from fastapi import FastAPI
 
-import state
+from geoserver import state
 from geoserver.geomesh_router import router as geomesh_router
 from geoserver.point_router import router as point_router
 
