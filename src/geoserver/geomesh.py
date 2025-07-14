@@ -739,7 +739,7 @@ class Geomesh:
 
         # Get resolution from cell (cell string is built using
         # an explicit resolution)
-        resolution = h3.h3_get_resolution(cell)
+        resolution = h3.get_resolution(cell)
 
         db_name = f"{dataset_name}.duckdb"
         table_name = self._table_name_from_ds_type(
@@ -806,7 +806,7 @@ class Geomesh:
 
         # Get resolution from cell (cell string is built using
         # an explicit resolution)
-        resolution = h3.h3_get_resolution(cell)
+        resolution = h3.get_resolution(cell)
 
         db_name = f"{dataset_name}.duckdb"
         table_name = self._table_name_from_ds_type(
@@ -893,7 +893,7 @@ class Geomesh:
         :rtype: Dict[str, Any]
         """
 
-        cell = h3.geo_to_h3(latitude, longitude, resolution)
+        cell = h3.latlng_to_cell(latitude, longitude, resolution)
         return self.cell_id_to_value_h3(
             dataset_name,
             cell,
@@ -1134,7 +1134,7 @@ class Geomesh:
         boundary_poly = Polygon(coords)
 
         geojson = shape(boundary_poly).__geo_interface__
-        overlap_cells = h3.polyfill(geojson, res)
+        overlap_cells = h3.polygon_to_cells(geojson, res)
         return set(overlap_cells)
 
     def _get_time_filters(
@@ -1310,7 +1310,7 @@ class Geomesh:
         """
 
         # logger.info(f"Using cell:{cell}")
-        coordinates = h3.h3_to_geo(cell)
+        coordinates = h3.cell_to_latlng(cell)
         # logger.info(f"result:{result}")
 
         return coordinates
@@ -1330,9 +1330,9 @@ class Geomesh:
 
 
     def _calculate_overlap(self, gdf, cell):
-        resolution = h3.h3_get_resolution(cell)
+        resolution = h3.get_resolution(cell)
         cell_km2 = Geomesh.CELLS_KM2_AT_RESOLUTION[resolution]
-        cell_polygon = Polygon(h3.h3_to_geo_boundary(cell, geo_json=True))
+        cell_polygon = Polygon(h3.cell_to_boundary(cell, geo_json=True))
 
         intersection_area_km2 = 0
         overlap = 0
@@ -1351,7 +1351,7 @@ class Geomesh:
 
     def _calculate_factor(self, cell):
         # Regular loop to calculate the sum of intersection areas
-        cell_polygon = Polygon(h3.h3_to_geo_boundary(cell, geo_json=True))
+        cell_polygon = Polygon(h3.cell_to_boundary(cell, geo_json=True))
 
         # Calculate mean latitude of the polygon
         mean_latitude = sum(
