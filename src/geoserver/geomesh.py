@@ -451,7 +451,7 @@ class Geomesh:
             lat,
             long,
             radius,
-            h3.h3_get_resolution(cell),
+            h3.get_resolution(cell),
             year,
             month,
             day
